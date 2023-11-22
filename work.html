@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Work Experience of Cy</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <style>
+        #timeline {
+        display: flex;
+        background-color: transparent;
+        flex-wrap: wrap;
+
+        &:hover {
+            .tl-item {
+            width: 23.3333%;
+            }
+        }
+        }
+
+        .tl-item {
+            transform: translate3d(0, 0, 0);
+            position: relative;
+            width: 25%;
+            height: 100vh;
+            min-height: 600px;
+            color: #555556;
+            overflow: hidden;
+            transition: width 0.5s ease;
+
+            &:before, &:after {
+                transform: translate3d(0, 0, 0);
+                content: '';
+                position: absolute;
+                left: 0; top: 0;
+                width: 100%; height: 100%;
+            }
+
+            &:before {
+                background: none;
+                z-index: 1;
+                opacity: 0;
+                transform: translate3d(0, 0, 0) translateY(50%);
+                transition: opacity 0.5s ease, transform 0.5s ease;
+            }
+
+            &:hover {
+                width: 30% !important;
+
+                &:after {
+                    opacity: 0;
+                }
+
+                &:before {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0) translateY(0);
+                    transition: opacity 1s ease, transform 1s ease 0.25s;
+                }
+
+                .tl-content {
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: all 0.75s ease 0.5s;
+                }
+            }
+        }
+
+        /* different background image for each tl-item */
+        .tl-item:nth-child(1):before {
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.55), white), url('https://media.istockphoto.com/id/906861924/zh/%E7%85%A7%E7%89%87/%E9%A3%9B%E6%A9%9F%E5%8A%9B%E5%AD%B8.jpg?s=1024x1024&w=is&k=20&c=shHsuTs7yilsarpIT1SQAphLlcBWXQwW1iW-BIlxLV8=');
+        }
+
+        .tl-item:nth-child(2):before {
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.55), white), url('https://media.istockphoto.com/id/904873106/zh/%E7%85%A7%E7%89%87/%E6%A9%9F%E5%BA%AB%E4%B8%AD%E7%9A%84%E9%A3%9B%E6%A9%9F%E4%BF%AE%E7%90%86%E5%B7%A5.jpg?s=1024x1024&w=is&k=20&c=FkotutmDXzXhdRYOsO4N22uqWVk-RMHKn-vJYriclGk=');
+        }
+
+        .tl-item:nth-child(3):before {
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.55), white), url('https://media.istockphoto.com/id/1284111579/zh/%E7%85%A7%E7%89%87/%E9%A3%9B%E8%A1%8C%E5%89%8D%E7%9A%84%E5%99%B4%E6%B0%A3%E7%99%BC%E5%8B%95%E6%A9%9F%E6%BA%96%E5%82%99%E5%B7%A5%E4%BD%9C.jpg?s=1024x1024&w=is&k=20&c=4nJ2c93vKGr-JhXx5djjL6s4Q2JDItP4y5E9QnhA94A=');
+        }
+
+        .tl-item:nth-child(4):before {
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.55), white), url('https://media.istockphoto.com/id/1284111578/zh/%E7%85%A7%E7%89%87/%E9%A3%9B%E6%A9%9F%E6%A9%9F%E6%A2%B0%E6%AA%A2%E6%9F%A5%E9%A3%9B%E6%A9%9F%E7%9A%84%E5%99%B4%E6%B0%A3%E7%99%BC%E5%8B%95%E6%A9%9F.jpg?s=1024x1024&w=is&k=20&c=Xv7-Y8O3qrRBB8ZyKjMiJbTdSTz-YotkX9z1pCKKZvs=');
+        }
+
+
+        .tl-content {
+        transform: translate3d(0, 0, 0) translateY(25px);
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin: 0 1.618em;
+        top: 15%;
+        opacity: 0;
+        }
+
+        .tl-year {
+        position:absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        z-index: 1;
+        border-top: 1px solid #555556;
+        border-bottom: 1px solid #555556;
+        }
+
+        @media screen and (max-width: 600px) {
+          #timeline {
+        display: flex;
+        background-color: transparent;
+        flex-wrap: wrap;
+
+        &:hover {
+            .tl-item {
+            width: 23.3333%;
+            }
+        }
+        }
+        .tl-item {
+            width: 100%;
+
+            &:before, &:after {
+                content: '';
+                position: absolute;
+                left: 0; top: 0;
+                width: 100%; height: 100%;
+            }
+                .tl-content {
+                    opacity: 1;
+            }
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="topnav">
+        <li><a href="index.html">&lt;/ Home &gt;</a></li>
+        <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+        <li><a href="education.html">&lt;/ Education &gt;</a></li>
+        <li><a href="work.html">&lt;/ Work &gt;</a></li>
+        <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+        <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+        <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+    </ul>
+
+    <header id="header2">
+        <div class="content">
+            <h1><span style="color:#3791c1; font-size: 2em;">{</span> 
+                My Work Experience
+            <span style="color:#3791c1; font-size: 2em;">}</span>
+            </h1>
+        </div>
+    </header>
+
+    <section id="timeline" class="fade-in">
+  
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2015</p>
+          </div>
+      
+          <div class="tl-content">
+            <h1>CMCDC<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+            <p style="text-align: justify;">
+                -> Known as Core Manufacturing Competencies Development Course (CMCDC), a three month training course or probation period for newly hired employees.
+                <br><br>
+                ->  Basic industry skills for producing high precision parts like servo actuators, valves and gears for commercial aircrafts.
+                <br><br>
+                -> Sub assembly for inboard and outboard parts for Airbus A330 and A340.
+            </p>
+          </div>
+        </div>
+      
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2015-2018</p>
+          </div>
+          <div class="tl-content">
+            <h1>Assembly and Test I<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+            <p style="text-align: justify;">
+                -> Read and interpret assembly blueprints, work sheets, parts lists, engineering procedures, work instructions, and other authorized instructions.
+                <br><br>
+                -> Utilize a variety of mechanical measuring equipment such as torque wrenches, dial indicators, calipers, micrometers, micro height meters, and other precision tools as needed.
+                <br><br>
+                -> Sub assembly of check valves, relief valves, manifolds, and shipping preparation of Boeing 777 inboard, outboard, and mechanical spoilers.
+            </p>
+          </div>
+        </div>
+      
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2018-2021</p>
+          </div>
+          <div class="tl-content">
+            <h1>Assembly and Test II<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+            <p style="text-align: justify;">
+                -> Performs in depth analysis in troubleshooting and repair on actuator systems alongside product engineering and quality engineering.
+                <br><br>
+                -> Perform assembly of complex servo actuators such as Boeing 777 Spoilers, 737 Autopilot, 787 Ailerons.
+            </p>
+          </div>
+        </div>
+      
+        <div class="tl-item">
+          <div class="tl-year">
+            <p></p>2021-2023</p>
+          </div>
+          <div class="tl-content">
+            <h1>Senior Assembly and Test<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+            <p style="text-align: justify;">
+                -> Troubleshoots and perform diagnostic works on complex actuator assembly units that are non-conforming to standards and applies appropriate rework.
+                <br><br>
+                -> Make improvements to engineering processes in assembly and test.
+                <br><br>
+                -> Set-up, operate, and calibrate functional, automated electronics and manual electronic hydraulic test rigs and equipment.
+                <br><br>
+                -> Implements training activities to new employees.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    <footer>
+        <p>Copyright © 2023 Mark Cyril Sim</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
