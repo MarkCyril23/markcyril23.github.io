@@ -51,6 +51,7 @@
         }
     
         input[type=text],
+        input[type=email],
         select,
         textarea {
             width: 100%;
@@ -166,14 +167,16 @@
             <div class="form-container">
                 <form id="contactform" action="https://formsubmit.io/send/170ed3d3-09f2-47a4-a38a-5f70e8b88a58" method="POST">
                 <label for="name">Name:</label>
-                <input type="text" name="name" style="height:50px; opacity: 0.8;" placeholder="Your name or your company">
+                <input name="name" type="text" id="name" style="height:50px; opacity: 0.8;" placeholder="Your name or your company">
                 
                 <label for="contact">Contact:</label>
-                <input type="text" contact="contact" style="height:50px; opacity: 0.8;" placeholder="Your e-mail address or contact number">
+                <input name="email" type="email" id="email" style="height:50px; opacity: 0.8;" placeholder="Your e-mail address or contact number">
                 
                 <label for="message">Message:</label>
-                <input type="text" message="message" style="height:100px; opacity: 0.8;" placeholder="Write youre message here...">
+                <textarea name="comment" id="comment" style="height:100px; opacity: 0.8;" placeholder="Write youre message here..."></textarea>
                 
+                <input name="_formsubmit_id" type="text" style="display:none">
+
                 <input type="submit" value="Submit">
                 </form>
             </div>
