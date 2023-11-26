@@ -75,3 +75,9 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     handleScroll();
 });
+
+//for mobile view
+function toggleMobileMenu() {
+    var mobileNav = document.getElementById("mobileNav");
+    mobileNav.style.display = (mobileNav.style.display === "block") ? "none" : "block";
+  }

@@ -7,70 +7,131 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <style>
-      .collapsible {
-        font-family: 'Quicksand', sans-serif;
-        font-size: 16px;
-        background-color: #555556;
-        color: #a0a2a4;
-        cursor: pointer;
-        padding: 18px;
-        width: 100%;
-        border: none;
-        text-align: left;
-        outline: none;
-      }
+    * {
+      box-sizing: border-box;
+    }
 
-      .active,
-      .collapsible:hover {
-        color: white;
-      }
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      margin-top: 10px;
+    }
 
-      .collapsible:after {
-        content: '\002B';
-        color: rgb(228, 228, 228);
-        float: right;
-        margin-left: 5px;
-      }
+    .imgoverlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #ffffffc1;
+      overflow: hidden;
+      width: 100%;
+      height: 50px;
+      transition: .5s ease;
+    }
 
-      .active:after {
-        content: "\2212";
-      }
+    .container:hover .imgoverlay {
+      height: 100%;
+    }
 
-      .content2 {
-        padding: 0 10%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.2s ease-out;
-        background-color: #f1f1f1;
-        justify-content: space-between;
-        align-items: center;
-      }
+    .text {
+      color: #2c2c2c;
+      font-size: 20px;
+      position: absolute;
+      text-align: justify;
+      padding: 5%;
+    }
 
-      .content2 p {
-        text-align: justify;
-        margin: 10%;
-        overflow: auto;
-      }
+    .text p{
+      font-size: 17px;
+    }
+      
+    .row-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      position: relative;
+      margin-left: 5%;
+      margin-right: 5%;
+      margin-top: 50px;
+    }
+    .row {
+      display: -ms-flexbox; /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap; /* IE10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
 
-      .content2 img {
-        max-height: 100px;
-        width: auto;
-        height: auto;
-        margin-right: 15px;
+    /* Create four equal columns that sits next to each other */
+    .column {
+      -ms-flex: 33.333%; /* IE10 */
+      flex: 33.333%;
+      max-width: 33.333%;
+      padding: 1%;
+      margin: auto;
+      position: relative;
+    }
+
+    .column img {
+      vertical-align: middle;
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
       }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      } 
+    }
     </style>
 </head>
 <body>
-    <ul class="topnav">
-      <li><a href="index.html">&lt;/ Home &gt;</a></li>
-      <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
-      <li><a href="education.html">&lt;/ Education &gt;</a></li>
-      <li><a href="work.html">&lt;/ Work &gt;</a></li>
-      <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
-      <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
-      <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
-    </ul>
+  <!-- Desktop Navigation -->
+  <ul class="topnav">
+    <li><a href="index.html">&lt;/ Home &gt;</a></li>
+    <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+    <li><a href="education.html">&lt;/ Education &gt;</a></li>
+    <li><a href="work.html">&lt;/ Work &gt;</a></li>
+    <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+    <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+    <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+  </ul>
 
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-title">&lt;/ Why Me? &gt;</div>
+    <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-container">
+        <ul class="topnav" id="mobileNav">
+        <li><a href="index.html">&lt;/ Home &gt;</a></li>
+        <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+        <li><a href="education.html">&lt;/ Education &gt;</a></li>
+        <li><a href="work.html">&lt;/ Work &gt;</a></li>
+        <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+        <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+        <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+        </ul>
+    </div>
+  </div>
+  
     <header id="header2">
       <div class="content">
           <h1><span style="color:#3791c1; font-size: 2em;">{</span> 
@@ -84,108 +145,94 @@
           </p>
       </div>
       <div>
+        <br>
         <svg class="arrows">
             <path class="a1" d="M0 0 L30 32 L60 0"></path>
             <path class="a2" d="M0 20 L30 52 L60 20"></path>
             <path class="a3" d="M0 40 L30 72 L60 40"></path>
-          </svg>
-      </div>
+        </svg>
+        <br><br>
+    </div>
     </header>
 
-    <div id="header" style="margin-left: 20%; margin-right: 20%; margin-top: 10%;">
-        <button class="collapsible">Adaptability</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1490859962/photo/power-soft-skills-multi-skills-responsibility-hr-human-resources-concept-personal-attribute.jpg?s=612x612&w=0&k=20&c=ToS6Yl5eZgQUc0t9FWp7tHkabQvoEe0ge1PFbPYvf7A=" alt="Adaptability" style="float: left; margin-right: 10px;">
-            My transition from electronics engineering to computer science demonstrates my ability to adapt and thrive in diverse professional landscapes.
-          </p>
-        </div>
-        <button class="collapsible">Analytical Thinking</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/585506718/photo/businessman-using-innovative-technologies-mixed-media.jpg?s=612x612&w=0&k=20&c=TT0ll7Yve-SYHi0jzZVJ6UXsaGRCAD0tqSr2tr5k7r4=" alt="Analytical Thinking" style="float: right; margin-left: 10px;">
-            Rooted in my engineering background, I approach problem-solving with a logical and systematic mindset, a valuable asset in software development.
-          </p>
-        </div>
-        <button class="collapsible">Project Management</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1411195926/photo/project-manager-working-on-laptop-and-updating-tasks-and-milestones-progress-planning-with.jpg?s=1024x1024&w=is&k=20&c=s8RW3X1fOgFhpBb_4-CVlAo_ZnR2HJnM-zoVWf9sWkM=" alt="Project Management" style="float: left; margin-right: 10px;">
-            The aerospace industry demands rigorous project management skills, which I bring to the table to ensure the successful and timely completion of software projects.
-          </p>
-        </div>
-        <button class="collapsible">Diverse Skill Set</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1393379238/photo/work-performance-is-influenced-by-skills-abilities-and-competence-the-concept-of-the.jpg?s=612x612&w=0&k=20&c=JmF3ow_Nn1jLVsjVWSmrCgBpJhJ3FnxX2rVIxWlO68Q=" alt="Diverse Skill Set" style="float: right; margin-left: 10px;">
-            My unique blend of engineering expertise and newfound proficiency in computer science positions me as a versatile candidate capable of bridging the gap between hardware and software.
-          </p>
-        </div>
-        <button class="collapsible">Determination and Grit</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1486907292/photo/man-climbing-up-mountain-cliff-working-hard-to-reach-goals.jpg?s=612x612&w=0&k=20&c=i5FnrK8Lfb90oUPUKynJgeCMaZeFehBuhLh1EaS3OSQ=" alt="Determination and Grit" style="float: left; margin-right: 10px;">
-            My decision to pursue and successfully complete Harvard's CS50 course online while working full-time underscores my determination and commitment to self-improvement. I approach challenges with a resilient mindset, ensuring that obstacles are seen as opportunities for growth.
-          </p>
-        </div>
-        <button class="collapsible">Effective Communication</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1449248160/photo/successful-business-man-talking-to-his-team-in-a-meeting.jpg?s=612x612&w=0&k=20&c=A-5-Bmfb-jCOzXqUqZdjU7Eb6UhwqGA8LjiFKb9d29o=" alt="Effective Communicatio" style="float: right; margin-left: 10px;">
-            In the aerospace industry, clear communication is vital to the success of complex projects. I bring this skill to software development, fostering collaboration and ensuring that project goals and requirements are communicated effectively across teams.
-          </p>
-        </div>
-        <button class="collapsible">Beyond the Resume</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/157307281/photo/magnifying-glass-on-resume.jpg?s=612x612&w=0&k=20&c=4GOxsmLgRc-TkdGTp3sSUwo-JronCIXg0Doj5P8Jwxw=" alt="Beyond the Resume" style="float: left; margin-right: 10px;">
-            While my resume showcases my technical proficiencies, it's important to note that I bring more than just technical skills to the table. I bring a genuine enthusiasm for innovation, a collaborative spirit, and a track record of success in adapting to new challenges. I am not just looking for a job; I am seeking an opportunity to contribute my unique blend of skills and experiences to a forward-thinking team.
-          </p>
-        </div>
-        <button class="collapsible">Passion for Innovation</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/1012048786/photo/painter-in-making-mode.jpg?s=612x612&w=0&k=20&c=OeqnaVDDPIMAPRdq2tl_WT-bRCcRHAV98dExSRK2lYs=" alt="Passion for Innovation" style="float: right; margin-left: 10px;">
-            Driven by a passion for innovation, I am excited about the opportunities to contribute my skills and knowledge to dynamic software projects. My ability to combine technical prowess with a fresh perspective makes me an asset to any team seeking a forward-thinking and results-driven.
-          </p>
-        </div>
-        <button class="collapsible">Building a Future Together</button>
-        <div class="content2">
-          <p>
-            <img src="https://media.istockphoto.com/id/519434666/photo/going-over-every-detail.jpg?s=612x612&w=0&k=20&c=7hW9Ty0Da47rlZwtJlKhzoER1DL1GN2ByXk7fLY9JZE=" alt="Building a Future Together" style="float: left; margin-right: 10px;">
-            I am eager to contribute to a team that values diversity of thought and embraces the power of interdisciplinary skills. My goal is not just to be an employee but a catalyst for positive change within your organization. Let's embark on this exciting journey together, where my passion for learning and problem-solving aligns seamlessly with the cutting-edge opportunities your team provides. Together, we can build a bright future.
-          </p>
-        </div>
-    </div>
+<div class="row-container fade-in">
+<div class="row">
 
+	<div class="column">
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1490859962/photo/power-soft-skills-multi-skills-responsibility-hr-human-resources-concept-personal-attribute.jpg?s=612x612&w=0&k=20&c=ToS6Yl5eZgQUc0t9FWp7tHkabQvoEe0ge1PFbPYvf7A=" alt="Avatar">
+        <div class="imgoverlay">
+          <div class="text">Adaptability
+            <p>My transition from electronics engineering to the aerospace manufacturing industry and into computer science demonstrates my ability to adapt and thrive in diverse professional landscapes.</p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/912637018/photo/analyst-works-on-a-personal-computer-showing-statistics-graphs-and-charts-in-the-background.jpg?s=612x612&w=0&k=20&c=cZaB_oVe4xz9M3pXfAbXEPkeiADiTSOaFA1JJyN4Lis=" alt="Analytical Thinking">
+        <div class="imgoverlay">
+          <div class="text">Analytical Thinking
+            <p>Rooted in my engineering background, I approach problem-solving with a logical and systematic mindset, a valuable asset in software development.</p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1411195926/photo/project-manager-working-on-laptop-and-updating-tasks-and-milestones-progress-planning-with.jpg?s=1024x1024&w=is&k=20&c=s8RW3X1fOgFhpBb_4-CVlAo_ZnR2HJnM-zoVWf9sWkM=" alt="Project Management">
+        <div class="imgoverlay">
+          <div class="text">Project Management
+            <p>The aerospace industry demands rigorous project management skills, which I bring to the table to ensure the successful and timely completion of projects.</p></div>
+        </div>
+      </div>
+     </div>
+     
+	<div class="column">
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1393379238/photo/work-performance-is-influenced-by-skills-abilities-and-competence-the-concept-of-the.jpg?s=612x612&w=0&k=20&c=JmF3ow_Nn1jLVsjVWSmrCgBpJhJ3FnxX2rVIxWlO68Q=" alt="Diverse Skill Set">
+        <div class="imgoverlay">
+          <div class="text">Diverse Skill Set
+            <p>My unique blend of engineering expertise and newfound proficiency in computer science positions me as a versatile candidate capable of bridging the gap between hardware and software.</p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1486907292/photo/man-climbing-up-mountain-cliff-working-hard-to-reach-goals.jpg?s=612x612&w=0&k=20&c=i5FnrK8Lfb90oUPUKynJgeCMaZeFehBuhLh1EaS3OSQ=" alt="Determination and Grit">
+        <div class="imgoverlay">
+          <div class="text">Determination and Grit
+            <p>My decision to pursue and successfully complete Harvard's CS50 while working full-time underscores my commitment to self-improvement. I approach challenges with a resilient mindset, overcoming obstacles.</p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1449248160/photo/successful-business-man-talking-to-his-team-in-a-meeting.jpg?s=612x612&w=0&k=20&c=A-5-Bmfb-jCOzXqUqZdjU7Eb6UhwqGA8LjiFKb9d29o=" alt="Effective Communication">
+        <div class="imgoverlay">
+          <div class="text">Effective Communication
+            <p>Clear communication is vital to the success of complex projects. I bring this skill of team development, fostering collaboration and ensuring project goals are communicated effectively across teams.</p></div>
+        </div>
+      </div>
+     </div>
+     <div class="column">
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/157307281/photo/magnifying-glass-on-resume.jpg?s=612x612&w=0&k=20&c=4GOxsmLgRc-TkdGTp3sSUwo-JronCIXg0Doj5P8Jwxw=" alt="Beyond the Resume">
+        <div class="imgoverlay">
+          <div class="text">Beyond the Resume
+            <p>Beyond my skills highlighted, I bring genuine enthusiasm and passion. I am not just looking for a job; I am seeking opportunity to contribute my unique blend of skills and experiences.</p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/1012048786/photo/painter-in-making-mode.jpg?s=612x612&w=0&k=20&c=OeqnaVDDPIMAPRdq2tl_WT-bRCcRHAV98dExSRK2lYs=" alt="Passion for Innovation">
+        <div class="imgoverlay">
+          <div class="text">Passion for Innovation
+            <p>Enthusiastic about pushing boundaries and driving progress, my passion for innovation fuels my commitment to seeking creative solutions and embracing emerging technologies. </p></div>
+        </div>
+      </div>
+      <div class="container">
+        <img src="https://media.istockphoto.com/id/519434666/photo/going-over-every-detail.jpg?s=612x612&w=0&k=20&c=7hW9Ty0Da47rlZwtJlKhzoER1DL1GN2ByXk7fLY9JZE=" alt="Building a Future Together">
+        <div class="imgoverlay">
+          <div class="text">Building a Future Together
+            <p>My goal is not just to be an employee, but a catalyst for positive change. With your team, let's embark on a learning and problem-solving journey. Together, let's build a bright future.</p></div>
+        </div>
+      </div>
+     </div>
+  </div>
+  </div>
     <footer>
         <p>Copyright © 2023 Mark Cyril Sim</p>
     </footer>
-    <script>
-      var coll = document.getElementsByClassName("collapsible");
-      var i;
-      var openCollapsible = null;
-    
-      for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          if (openCollapsible && openCollapsible !== this) {
-            openCollapsible.classList.remove("active");
-            var openContent = openCollapsible.nextElementSibling;
-            openContent.style.maxHeight = null;
-          }
-    
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-          } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-          }
-          openCollapsible = (openCollapsible === this) ? null : this;
-        });
-      }
-    </script>
-    
     <script src="main.js"></script>
 </body>
 </html>

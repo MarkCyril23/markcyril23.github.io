@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <style>
+        body {
+            background-size: cover;
+        }
         #timeline {
         display: flex;
         background-color: transparent;
@@ -88,7 +91,7 @@
         transform: translate3d(0, 0, 0) translateY(25px);
         position: relative;
         z-index: 1;
-        text-align: center;
+        text-align: justify;
         margin: 0 1.618em;
         top: 15%;
         opacity: 0;
@@ -104,37 +107,67 @@
         border-bottom: 1px solid #555556;
         }
 
-        @media screen and (max-width: 600px) {
-          #timeline {
-        display: flex;
-        background-color: transparent;
-        flex-wrap: wrap;
+        .tl-title {
+          position:relative;
+          text-align: center;
+          top: 22%;
+          left: 50%;
+          transform: translateX(-50%) translateY(-50%);
+          z-index: 1;
+        }
 
-        &:hover {
+        /* Media Query for Mobile View */
+        @media (max-width: 600px) {
+            #timeline {
+                &:hover {
+                    .tl-item {
+                        width: 100% !important;
+                    }
+                }
+            }
+
             .tl-item {
-            width: 23.3333%;
-            }
-        }
-        }
-        .tl-item {
-            width: 100%;
+                width: 100% !important;
 
-            &:before, &:after {
-                content: '';
-                position: absolute;
-                left: 0; top: 0;
-                width: 100%; height: 100%;
-            }
+                &:hover {
+                    width: 100% !important;
+                }
+
+                &:before,
+                &:after {
+                    opacity: 1;
+                    transform: translate3d(0, 0, 0);
+                }
+
                 .tl-content {
                     opacity: 1;
+                    transform: translateY(0);
+                    transition: all 0.75s ease 0.5s;
+                }
             }
         }
-        }
+
 
     </style>
 </head>
 <body>
-    <ul class="topnav">
+  <!-- Desktop Navigation -->
+  <ul class="topnav">
+    <li><a href="index.html">&lt;/ Home &gt;</a></li>
+    <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+    <li><a href="education.html">&lt;/ Education &gt;</a></li>
+    <li><a href="work.html">&lt;/ Work &gt;</a></li>
+    <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+    <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+    <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+  </ul>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-title">&lt;/ Work &gt;</div>
+    <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-container">
+        <ul class="topnav" id="mobileNav">
         <li><a href="index.html">&lt;/ Home &gt;</a></li>
         <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
         <li><a href="education.html">&lt;/ Education &gt;</a></li>
@@ -142,7 +175,9 @@
         <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
         <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
         <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
-    </ul>
+        </ul>
+    </div>
+  </div>
 
     <header id="header2">
         <div class="content">
@@ -154,65 +189,17 @@
     </header>
 
     <section id="timeline" class="fade-in">
-  
-        <div class="tl-item">
-          <div class="tl-year">
-            <p>2015</p>
-          </div>
-      
-          <div class="tl-content">
-            <h1>CMCDC<br></h1>
-            <h3><i>Moog Philippines</i></h3>
-            <p style="text-align: justify;">
-                -> Known as Core Manufacturing Competencies Development Course (CMCDC), a three month training course or probation period for newly hired employees.
-                <br><br>
-                ->  Basic industry skills for producing high precision parts like servo actuators, valves and gears for commercial aircrafts.
-                <br><br>
-                -> Sub assembly for inboard and outboard parts for Airbus A330 and A340.
-            </p>
-          </div>
-        </div>
-      
-        <div class="tl-item">
-          <div class="tl-year">
-            <p>2015-2018</p>
-          </div>
-          <div class="tl-content">
-            <h1>Assembly and Test I<br></h1>
-            <h3><i>Moog Philippines</i></h3>
-            <p style="text-align: justify;">
-                -> Read and interpret assembly blueprints, work sheets, parts lists, engineering procedures, work instructions, and other authorized instructions.
-                <br><br>
-                -> Utilize a variety of mechanical measuring equipment such as torque wrenches, dial indicators, calipers, micrometers, micro height meters, and other precision tools as needed.
-                <br><br>
-                -> Sub assembly of check valves, relief valves, manifolds, and shipping preparation of Boeing 777 inboard, outboard, and mechanical spoilers.
-            </p>
-          </div>
-        </div>
-      
-        <div class="tl-item">
-          <div class="tl-year">
-            <p>2018-2021</p>
-          </div>
-          <div class="tl-content">
-            <h1>Assembly and Test II<br></h1>
-            <h3><i>Moog Philippines</i></h3>
-            <p style="text-align: justify;">
-                -> Performs in depth analysis in troubleshooting and repair on actuator systems alongside product engineering and quality engineering.
-                <br><br>
-                -> Perform assembly of complex servo actuators such as Boeing 777 Spoilers, 737 Autopilot, 787 Ailerons.
-            </p>
-          </div>
-        </div>
-      
+
         <div class="tl-item">
           <div class="tl-year">
             <p></p>2021-2023</p>
           </div>
-          <div class="tl-content">
+          <div class="tl-title">
             <h1>Senior Assembly and Test<br></h1>
             <h3><i>Moog Philippines</i></h3>
-            <p style="text-align: justify;">
+          </div>
+          <div class="tl-content">
+            <p>
                 -> Troubleshoots and perform diagnostic works on complex actuator assembly units that are non-conforming to standards and applies appropriate rework.
                 <br><br>
                 -> Make improvements to engineering processes in assembly and test.
@@ -223,7 +210,69 @@
             </p>
           </div>
         </div>
-      </section>
+      
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2018-2021</p>
+          </div>
+          <div class="tl-title">
+            <h1>Assembly and Test II<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+          </div>
+          <div class="tl-content">
+            <p>
+                -> Performs in depth analysis in troubleshooting and repair on actuator systems alongside product engineering and quality engineering.
+                <br><br>
+                -> Perform assembly of complex servo actuators such as Boeing 777 Spoilers, 737 Autopilot, 787 Ailerons.
+                <br><br>
+                -> Coordinates with planners, cluster leaders, and managers for daily, weekly, and monthly for delivery commitments.
+                <br><br>
+                -> Maintains skills and knowledge of Assembly and Test I competencies.
+            </p>
+          </div>
+        </div>
+      
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2015-2018</p>
+          </div>
+          <div class="tl-title">
+            <h1>Assembly and Test I<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+          </div>
+          <div class="tl-content">
+
+            <p>
+                -> Read and interpret assembly blueprints, work sheets, parts lists, engineering procedures, work instructions, and other authorized instructions.
+                <br><br>
+                -> Utilize a variety of mechanical measuring equipment such as torque wrenches, dial indicators, calipers, micrometers, micro height meters, and other precision tools as needed.
+                <br><br>
+                -> Sub assembly of check valves, relief valves, manifolds, and shipping preparation of Boeing 777 inboard, outboard, and mechanical spoilers.
+            </p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">
+            <p>2015</p>
+          </div>
+          <div class="tl-title">
+            <h1>CMCDC<br></h1>
+            <h3><i>Moog Philippines</i></h3>
+          </div>
+          <div class="tl-content">
+
+            <p>
+                -> Known as Core Manufacturing Competencies Development Course (CMCDC), a three month training course or probation period for newly hired employees.
+                <br><br>
+                ->  Basic industry skills for producing high precision parts like servo actuators, valves and gears for commercial aircrafts.
+                <br><br>
+                -> Sub assembly for inboard and outboard parts for Airbus A330 and A340.
+            </p>
+          </div>
+        </div>
+
+    </section>
 
     <footer>
         <p>Copyright © 2023 Mark Cyril Sim</p>

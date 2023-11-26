@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5%;
+    margin-top: 10%;
     justify-content: center;
     height: auto;
     max-width: 100%;
@@ -26,7 +26,7 @@
 }
 
 #header2 {
-  margin-top: 10px;
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   height: auto;
@@ -37,48 +37,87 @@
 
 /* font style */
 /* naviation bar */
-
 body {
+  background-image: url(images/webpage_background.jpg);
+  background-size: contain;
   font-family: "Quicksand", sans-serif;
   color: #555556;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   margin: 0;
+}
+
+ul.topnav {
+  background: #555556;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+ul.topnav li {
+  display: inline-block;
+}
+
+ul.topnav li a {
+  display: block;
+  color: rgb(228, 228, 228);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {
+  color: gray;
+}
+
+/* Mobile styles */
+.mobile-nav {
+  display:none;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.mobile-title {
+  background: #555556;
+  color: rgb(228, 228, 228);
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.menu-btn {
+  background-color: #555556;
+  color: rgb(228, 228, 228);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+@media screen and (max-width: 600px) {
+  ul.topnav {
+    display: none;
   }
 
-  ul.topnav {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #555556;
-    text-align: center;
-    z-index:1;
-  }
-  
-  ul.topnav li {
-    display: inline-block;
-  }
-  
-  ul.topnav li a {
+  .mobile-nav {
     display: block;
-    color: rgb(228, 228, 228);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
   }
-  
-  ul.topnav li a:hover:not(.active) {
-    color: gray;
-  }
-  
-  ul.topnav li.right {
-    float: none;
-  }
+}
+
   
   /* Timeline for education */
   

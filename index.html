@@ -6,9 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <style>
+        body {
+            background-size: cover;
+        }
+    </style>
 </head>
 <body>
-    <ul class="topnav">
+  <!-- Desktop Navigation -->
+  <ul class="topnav">
+    <li><a href="index.html">&lt;/ Home &gt;</a></li>
+    <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+    <li><a href="education.html">&lt;/ Education &gt;</a></li>
+    <li><a href="work.html">&lt;/ Work &gt;</a></li>
+    <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+    <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+    <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+  </ul>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-title">&lt;/ Home &gt;</div>
+    <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-container">
+        <ul class="topnav" id="mobileNav">
         <li><a href="index.html">&lt;/ Home &gt;</a></li>
         <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
         <li><a href="education.html">&lt;/ Education &gt;</a></li>
@@ -16,7 +37,9 @@
         <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
         <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
         <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
-    </ul>
+        </ul>
+    </div>
+  </div>
 
     <!-- Cy's welcome page -->
     <header id="header">

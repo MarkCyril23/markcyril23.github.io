@@ -6,9 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <style>
+        .aboutme-container {
+            margin: auto;
+            width: 70%;
+            padding: 2%;
+        }
+
+        .aboutme-container p {
+            text-align: justify;
+        }
+
+        .aboutme-image-left {
+            max-height: 250px;
+            width:auto;
+            height:auto;
+            margin: 0px 50px;
+            float: left;
+        }  
+        .aboutme-image-right {
+            max-height: 250px;
+            width:auto;
+            height:auto;
+            margin: 0px 50px;
+            float: right;
+        }  
+
+        @media only screen and (max-width: 600px) {
+
+        .aboutme-container {
+            text-align: center;
+            width: 100%;
+            margin: auto;
+            padding: 2%;
+        }
+
+        .aboutme-image-right {
+            float: none;
+            margin: 0 auto;
+            display: block;
+            max-width: 100%;
+        }
+        .aboutme-image-left {
+            float: none;
+            margin: 0 auto;
+            display: block;
+            max-width: 100%;
+        }
+    }
+    </style>
 </head>
 <body>
-    <ul class="topnav">
+  <!-- Desktop Navigation -->
+  <ul class="topnav">
+    <li><a href="index.html">&lt;/ Home &gt;</a></li>
+    <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+    <li><a href="education.html">&lt;/ Education &gt;</a></li>
+    <li><a href="work.html">&lt;/ Work &gt;</a></li>
+    <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+    <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+    <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+  </ul>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-title">&lt;/ About Me &gt;</div>
+    <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-container">
+        <ul class="topnav" id="mobileNav">
         <li><a href="index.html">&lt;/ Home &gt;</a></li>
         <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
         <li><a href="education.html">&lt;/ Education &gt;</a></li>
@@ -16,7 +81,9 @@
         <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
         <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
         <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
-    </ul>
+        </ul>
+    </div>
+  </div>
 
     <header id="header2">
         <div class="content">
@@ -26,12 +93,42 @@
             </h1>
         </div>
         <div>
-            <h4 style="text-align: center; margin: 0 10%;">
+            <h3 style="text-align: center; margin: 0 10%;">
                 So, who am I?
-            </h4>
+            </h3>
         </div>
     </header>
 
+    <div class="aboutme-container fade-in">
+        <img class="aboutme-image-left" src="https://scontent.fmnl9-4.fna.fbcdn.net/v/t39.30808-6/271300496_10221733736037286_5766886638460583909_n.jpg?stp=dst-jpg_s640x640&_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHWgmiA_Ng471yybVdspySVQmVUIRsrCqRCZVQhGysKpN_17w-pyExNuRYtGamm80U&_nc_ohc=MHrA_Ep68jgAX965LB1&_nc_ht=scontent.fmnl9-4.fna&oh=00_AfDkhoLoRXAkIzSueGljBaMYKApY_I5uB2kCZtEEjWFaxw&oe=65673571" alt="My Photo 1">
+        <p>
+            Hello, I'm Mark Cyril Sim, or Cy for short—a dedicated professional with a background in electronics engineering and nine years in manufacturing flight controls for commercial aircrafts.
+        </p>
+    </div>
+    <div class="aboutme-container fade-in">
+        <img class="aboutme-image-right" src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.18169-9/1970359_10201808170790608_1827945986_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=4dc865&_nc_eui2=AeGstWqz452NLmW1ioEvFh6KDV20GZwfVDENXbQZnB9UMaPJKQnqDfZypOVydtzHQvU&_nc_ohc=tNhwg3Rf8swAX9jT9uw&_nc_ht=scontent.fmnl9-2.fna&oh=00_AfBJWZ5SB7BCgpPKX0AEIlybeHsnc4x_G7DJFtfXEiA9GQ&oe=658A134C" alt="My Photo 2">
+        <p>
+            Transitioning from engineering, I'm thrilled to embark on a new chapter of my career in computer science and software development. Armed with a degree in Electronics Engineering, a grasp of Manufacturing Engineering and Management, a comprehensive education in CS50 from Harvard and other online courses, I bring a robust analytical and problem-solving mindset.
+        </p>
+    </div>
+    <div class="aboutme-container fade-in">
+        <img class="aboutme-image-left" src="https://scontent.fcrk2-2.fna.fbcdn.net/v/t1.6435-9/53934100_800391383693744_3281880670896390144_n.png?_nc_cat=103&ccb=1-7&_nc_sid=300f58&_nc_eui2=AeEO7W5pJ7b0BH0ImNWyRQKImZvHCtafLiSZm8cK1p8uJO0EiUcTsk5DHHvfrwSdz-I&_nc_ohc=NmgytLPYIawAX85rwjr&_nc_ht=scontent.fcrk2-2.fna&oh=00_AfBjZhGUtq28SLZIvaNbSUw8Jbsfs9fEKbFS0aCp4G3jbA&oe=658A3E85" alt="My Photo 3">
+        <p>
+            My aerospace journey has honed my skills crucial for software development like: precision, attention to detail, and teamwork. As a proactive learner, I've explored various coding languages, from machine-level to C to Python, as a commitment to continuous growth.
+        </p>
+    </div>
+    <div class="aboutme-container fade-in">
+        <img class="aboutme-image-right" src="https://scontent.fcrk2-1.fna.fbcdn.net/v/t1.18169-9/1150423_10200664655243434_241985760_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=2be8e3&_nc_eui2=AeEMP8ynQSnj4TRatKc7BaVux690XPNSqgXHr3Rc81KqBWHShfV1MZnAXBsQ_v2CeoE&_nc_ohc=Kv1T0yDOqG4AX8vCRh5&_nc_ht=scontent.fcrk2-1.fna&oh=00_AfD9y04vKCBoho5TWKd5LGcEgnOC0DumCVSNoZo1qxeLMA&oe=65894E3F" alt="My Photo 4">
+        <p>
+            Beyond the professional landscape, I indulge in culinary exploration, relishing diverse cuisines, and seek enriching experiences through travel. Photography serves as both a leisure activity and creative outlet, capturing fleeting moments through the lens.
+        </p>
+    </div>
+    <div class="aboutme-container fade-in">
+        <img class="aboutme-image-left" src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t1.6435-9/36652458_10212616371348867_5370455457997520896_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7a1959&_nc_eui2=AeGWdnWfhUMBWvIm4MAhnJAs_FlhEJozLyj8WWEQmjMvKOaZfbkAGbaWRcbD5NWkWHc&_nc_ohc=ikPOpa4RIZ8AX9d1uIi&_nc_ht=scontent.fmnl9-1.fna&oh=00_AfCWcd6lxG6a2RY_wp41_icqAC80CReoJt-VbPLV806BQw&oe=65893641" alt="My Photo 5">
+        <p>
+            In essence, my dedication to a balanced and fulfilling lifestyle infuses creativity and mindfulness into my professional endeavors. I firmly believe that this holistic approach contributes to a more innovative and resilient mindset, qualities I'm eager to bring to your dynamic team.
+        </p>
+    </div>
     <footer>
         <p>Copyright © 2023 Mark Cyril Sim</p>
     </footer>

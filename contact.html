@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
     <style>
+        body {
+            background-size: cover;
+        }
         * {
             box-sizing: border-box;
         }
@@ -86,7 +89,7 @@
             border-radius: 10px;
         }
     
-        button {
+        .contact {
             border: none;
             outline: 0;
             display: inline-block;
@@ -100,14 +103,30 @@
             border-bottom-left-radius: 5px;
             border-bottom-right-radius: 5px;
         }
-        button:hover {
+        .contact:hover {
             color: gray;
         }
     </style>
     
 </head>
 <body>
-    <ul class="topnav">
+  <!-- Desktop Navigation -->
+  <ul class="topnav">
+    <li><a href="index.html">&lt;/ Home &gt;</a></li>
+    <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
+    <li><a href="education.html">&lt;/ Education &gt;</a></li>
+    <li><a href="work.html">&lt;/ Work &gt;</a></li>
+    <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
+    <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
+    <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
+  </ul>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-title">&lt;/ Contact &gt;</div>
+    <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
+    <div class="mobile-menu-container">
+        <ul class="topnav" id="mobileNav">
         <li><a href="index.html">&lt;/ Home &gt;</a></li>
         <li><a href="about_me.html">&lt;/ About Me &gt;</a></li>
         <li><a href="education.html">&lt;/ Education &gt;</a></li>
@@ -115,7 +134,9 @@
         <li><a href="skills.html">&lt;/ Skills &gt;</a></li>
         <li><a href="why_me.html">&lt;/ Why Me? &gt;</a></li>
         <li><a href="contact.html">&lt;/ Contact &gt;</a></li>
-    </ul>
+        </ul>
+    </div>
+  </div>
 
     <header id="header2">
         <div class="content">
@@ -138,11 +159,12 @@
                 <a href="https://github.com/MarkCyril23"><ion-icon name="logo-github"></ion-icon></a>
                 <a href="https://twitter.com/mark_cyril_sim"><ion-icon name="logo-twitter"></ion-icon></a>
                 </div>
-                <p><a href="mailto:markxyril@gmail.com?subject=Inquiry"><button>Contact Me</button></a></p>
+                <p><a href="mailto:markxyril@gmail.com?subject=Inquiry"><button  class="contact">Contact Me</button></a></p>
             </div>
         </div>
         <div class="column">
             <div class="form-container">
+                <form action="https://formsubmit.io/send/markxyril@gmail.com" method="POST">
                 <label for="name">Name:</label>
                 <input type="text" id="name" style="height:50px; opacity: 0.8;" placeholder="Your name or your company">
                 
@@ -153,6 +175,7 @@
                 <input type="text" id="message" style="height:100px; opacity: 0.8;" placeholder="Write youre message here...">
                 
                 <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     </div>
