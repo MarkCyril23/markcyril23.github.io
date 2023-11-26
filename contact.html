@@ -52,6 +52,7 @@
     
         input[type=text],
         input[type=email],
+        input[type=comment],
         select,
         textarea {
             width: 100%;
@@ -166,14 +167,20 @@
         <div class="column">
             <div class="form-container">
                 <form id="contactform" action="https://formsubmit.io/send/170ed3d3-09f2-47a4-a38a-5f70e8b88a58" method="POST">
+
+                <!--Honeypot-->
+                <input type="text" name="_honey" style="display: none;">
+
+                <input type="hidden" name="_next" value="https://markcyril23.github.io/success.html">
+
                 <label for="name">Name:</label>
                 <input name="name" type="text" id="name" style="height:50px; opacity: 0.8;" placeholder="Your name or your company">
                 
                 <label for="contact">Contact:</label>
                 <input name="email" type="email" id="email" style="height:50px; opacity: 0.8;" placeholder="Your e-mail address or contact number">
                 
-                <label for="message">Message:</label>
-                <textarea name="comment" id="comment" style="height:100px; opacity: 0.8;" placeholder="Write youre message here..."></textarea>
+                <label for="comment">Message:</label>
+                <input name="comment" id="comment" type="comment" style="height:50px; opacity: 0.8;" placeholder="Write your message here..."></input>
                 
                 <input name="_formsubmit_id" type="text" style="display:none">
 
