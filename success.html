@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Cy's Page</title>
+    <title>Contact Cy</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -10,7 +10,106 @@
         body {
             background-size: cover;
         }
+        * {
+            box-sizing: border-box;
+        }
+    
+        /* Create two equal columns that float next to each other */
+        .column {
+            float: left;
+            width: 50%;
+            padding: 10px;
+        }
+    
+        .column .card ion-icon {
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .column .card ion-icon:hover {
+            filter: grayscale(100%);
+            opacity: 0.3;
+        }
+    
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .row {
+            animation: reveal 1s ease-out;
+        }
+    
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+            }
+        }
+    
+        input[type=text],
+        input[type=email],
+        input[type=comment],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+            outline: none;
+            border-radius: 5px;
+        }
+    
+        input[type=submit] {
+            background-color: #555556;
+            color: rgb(228, 228, 228);
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    
+        input[type=submit]:hover {
+            color: gray;
+        }
+    
+        .form-container {
+            padding: 20px;
+            border-radius: 5px;
+        }
+    
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            border-radius: 10px;
+        }
+    
+        .contact {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: rgb(228, 228, 228);
+            background-color: #555556;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+        .contact:hover {
+            color: gray;
+        }
     </style>
+    
 </head>
 <body>
   <!-- Desktop Navigation -->
@@ -26,7 +125,7 @@
 
   <!-- Mobile Navigation -->
   <div class="mobile-nav">
-    <div class="mobile-title">&lt;/ Home &gt;</div>
+    <div class="mobile-title">&lt;/ Contact &gt;</div>
     <button class="menu-btn" onclick="toggleMobileMenu()">Menu</button>
     <div class="mobile-menu-container">
         <ul class="topnav" id="mobileNav">
@@ -41,21 +140,61 @@
     </div>
   </div>
 
-    <!-- Cy's welcome page -->
-    <header id="header">
+    <header id="header2">
         <div class="content">
-            <h2><span style="color: #3791c1; font-size: 2em;">{</span> 
-                Success!!!
-                <span style="color:#3791c1; font-size: 2em;">}</span></h2>
-            <h1 style="font-size: 3em;">Thank You for Contacting Me :)</h1>
-            <p>
-                I'll get back to you the soonest.
-            </p>
+            <h1><span style="color:#3791c1; font-size: 2em;">{</span> 
+                Get in touch
+            <span style="color:#3791c1; font-size: 2em;">}</span>
+            </h1>
         </div>
     </header>
+
+    <div class="row">
+        <div class="column">
+            <div class="card">
+                <img src="images/IMG_8806b35mm.jpg" alt="Mark Cyril Sim" style="width:50%; margin-top: 20px;">
+                <h1>Mark Cryil Sim</h1>
+                <div style="font-size: 30px;">
+                <a href="https://www.facebook.com/markcyril.sim"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://www.instagram.com/markcyril23/"><ion-icon name="logo-instagram"></ion-icon></ion-icon></a>
+                <a href="https://www.linkedin.com/in/mark-cyril-sim/"><ion-icon name="logo-linkedin"></ion-icon></a>
+                <a href="https://github.com/MarkCyril23"><ion-icon name="logo-github"></ion-icon></a>
+                <a href="https://twitter.com/mark_cyril_sim"><ion-icon name="logo-twitter"></ion-icon></a>
+                </div>
+                <p><a href="mailto:markxyril@gmail.com?subject=Inquiry"><button  class="contact">Contact Me</button></a></p>
+            </div>
+        </div>
+        <div class="column">
+            <div class="form-container">
+                <form id="contactform" action="https://formsubmit.io/send/170ed3d3-09f2-47a4-a38a-5f70e8b88a58" method="POST">
+
+                <!--Honeypot, disable capthca, new success page-->
+                <input type="text" name="_honey" style="display: none;">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://markcyril23.github.io/success.html">
+
+                <label for="name">Name:</label>
+                <input name="name" type="text" id="name" style="height:50px; opacity: 0.8;" placeholder="Your name or your company">
+                
+                <label for="contact">Contact:</label>
+                <input name="email" type="email" id="email" style="height:50px; opacity: 0.8;" placeholder="Your e-mail address or contact number">
+                
+                <label for="comment">Message:</label>
+                <input name="comment" id="comment" type="comment" style="height:50px; opacity: 0.8;" placeholder="Write your message here..."></input>
+                
+                <input name="_formsubmit_id" type="text" style="display:none">
+
+                <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>Copyright © 2023 Mark Cyril Sim</p>
     </footer>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
